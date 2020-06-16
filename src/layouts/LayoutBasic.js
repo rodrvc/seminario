@@ -7,7 +7,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import { Layout } from "antd";
-import { Login } from "../pages/Usr/Login";
+import { Login } from "../pages/landing/Login";
+import { Header } from "./Header";
 
 export default function LayoutBasic(props) {
   const { routes } = props;
@@ -16,29 +17,35 @@ export default function LayoutBasic(props) {
   if (!user) {
     return (
       <>
-        <Route path="/principal/login" component={Login} />
-        <Redirect to="/principal/login" />
+        <Header />
+        <div className="landing-page-bg">
+          <Route path="/principal/login" component={Login} />
+          <Redirect to="/principal/login" />
+        </div>
       </>
     );
   }
 
   return (
-    <div>
+    <>
       <p>Esto es un layout basico para mi aplicacion</p>
+
       <Layout>
         <RoutesWithComponents routes={routes} />
       </Layout>
-    </div>
+    </>
   );
 }
 
 function RoutesWithComponents({ routes }) {
   return routes.map((rout, i) => (
-    <Route
-      key={i}
-      path={rout.path}
-      exac={rout.exac}
-      component={rout.component}
-    />
+    <>
+      <Route
+        key={i}
+        path={rout.path}
+        exac={rout.exac}
+        component={rout.component}
+      />
+    </>
   )); // this is an Object so not {}!! instead ()
 }

@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { Layout } from "antd";
 import LayoutBasic from "../layouts/LayoutBasic"; // base
-import Principal from "../pages/Usr";
-import { Login } from "../pages/Usr/Login";
+import Principal from "../pages/landing";
+import { Login } from "../pages/landing/Login";
 
 const routes = [
   {

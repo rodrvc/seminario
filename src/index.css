@@ -4,6 +4,48 @@
   --main-padding: 15px;
 }
 
+.mainfront {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.front {
+  align-self: center;
+  justify-content: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.landing-page-bg {
+  background: #48a1af;
+  padding: 80px;
+}
+
+.langing-title {
+  font-size: 60px;
+  color: #fff;
+}
+.landing-msj-container {
+  padding-left: 80px;
+}
+
+.langing-msj {
+  color: #fff;
+  font-size: 50px;
+}
+.landing-btn {
+  align-self: center;
+  margin: 30px;
+  margin-bottom: 70px;
+  align-content: center;
+  text-align: center;
+}
+
+.landing-form {
+  width: 700px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -12,7 +54,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--main-bg-color);
-  padding: 10px;
+  padding: 0px;
 }
 
 code {
@@ -21,7 +63,7 @@ code {
 }
 
 .container {
-  padding: 180px;
+  padding: 10px;
 }
 
 .site-page-header {
