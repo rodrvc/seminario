@@ -5,7 +5,10 @@ export function Login() {
   return (
     <div>
       <h1>This is a login</h1>
-      <SingUp />
+      <div className="container">
+        <h1>Registrate</h1>
+        <SingUp />
+      </div>
     </div>
   );
 }

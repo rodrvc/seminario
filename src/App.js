@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { render } from "react-dom";
 import { DatePicker, message, Alert, PageHeader, Card } from "antd";
 import "antd/dist/antd.css";
-import "./index.css";
+import "./App.less";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import routes from "./config/routes";
-import Principal from "./pages/Usr";
+import Principal from "./pages/landing";
 
 function App() {
   // prueba de states
