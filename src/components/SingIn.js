@@ -27,6 +27,7 @@ const layout = {
     span: 16,
   },
 };
+
 const validateMessages = {
   required: "${label} is required!",
   types: {
@@ -40,11 +41,8 @@ const validateMessages = {
 
 function SingUp() {
   const [input, setInput] = useState({
-    name: "",
-    lastname: "",
     email: "",
     password: "",
-    repeatPassword: "",
   });
 
   const changeInput = (e) => {
@@ -60,19 +58,10 @@ function SingUp() {
 
   const register = (e) => {};
 
-  //   handleChange = (event) => {
-  //     this.setState({
-  //       editTodo: {
-  //         ...this.state.editTodo,
-  //         title: event.target.value,
-  //       },
-  //     });
-  // }
-
   return (
     <>
       <Card
-        title="REGISTRATE"
+        title="INGRESA"
         headStyle={{
           color: "#fff",
           textAlign: "center",
@@ -81,7 +70,6 @@ function SingUp() {
       >
         <Form
           {...layout}
-          //name="nest-messages"
           onFinish={onFinish}
           validateMessages={validateMessages}
           className="register-form"
@@ -100,27 +88,15 @@ function SingUp() {
             <Input value={input.name} />
           </Form.Item>
           <Form.Item
-            name="lastname"
-            label="lastName"
+            name="password"
+            label="Contraseña"
             rules={[
               {
                 required: true,
               },
             ]}
           >
-            <Input value={input.lastname} />
-          </Form.Item>
-          <Form.Item name="email" label="Email">
-            <Input value={input.email} />
-          </Form.Item>
-          <Form.Item name="password" label="password">
-            <Input.Password value={input.password} />
-          </Form.Item>
-          <Form.Item name="repeatPassword" label="repeatPassword">
-            <Input.Password value={input.repeatPassword} />
-          </Form.Item>
-          <Form.Item name="conditions" label="Introduction">
-            <Input.TextArea />
+            <Input value={input.password} />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 14 }}>
             <Button type="primary" htmlType="submit">
