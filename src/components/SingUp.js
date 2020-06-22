@@ -116,7 +116,7 @@ function SingUp() {
           <Form.Item name="password" label="password">
             <Input.Password value={input.password} />
           </Form.Item>
-          <Form.Item name="repeteatPassword" label="repeatPassword">
+          <Form.Item name="repeatPassword" label="repeatPassword">
             <Input.Password value={input.repeatPassword} />
           </Form.Item>
           <Form.Item name="conditions" label="Introduction">
