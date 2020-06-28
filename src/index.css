@@ -1,7 +1,7 @@
 :root {
   --main-bg-color: #fffff;
   --main-txt-color: blue;
-  --main-padding: 15px;
+  --main-padding: 0px;
 }
 
 .mainfront {
@@ -19,7 +19,8 @@
 
 .landing-page-bg {
   background: #48a1af;
-  padding: 80px;
+  padding-top: 200px;
+  padding-bottom: 300px;
 }
 
 .langing-title {

@@ -4,37 +4,41 @@ import "antd/dist/antd.css";
 import "../../src/index.css";
 import { signUpApi } from "../api/user";
 
-import {
-  Form,
-  Input,
-  InputNumber,
-  Button,
-  Layout,
-  Tabs,
-  Card,
-  Row,
-  Col,
-} from "antd";
+import { Form, Input, Button, Layout, Tabs, Card, Checkbox } from "antd";
 
 const { Header, Content, Sider } = Layout;
 const { TabPane } = Tabs;
 
 const layout = {
-  labelCol: {
-    span: 4,
-  },
-  wrapperCol: {
-    span: 16,
-  },
+  labelCol: { span: 6 },
+  wrapperCol: { span: 16 },
 };
+
 const validateMessages = {
   required: "${label} is required!",
+
   types: {
-    email: "${label} is not validate email!",
-    number: "${label} is not a validate number!",
+    name: "${label} is not validate nombre",
+    email: "${label} Debes ingresar un correo valido",
+    number: "${label} Debes ingresar un numero",
+    pattern: "${label} No coincide",
   },
   number: {
     range: "${label} must be between ${min} and ${max}",
+  },
+  text: "${label}no es texto",
+};
+
+const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0,
+    },
+    sm: {
+      span: 16,
+      offset: 8,
+    },
   },
 };
 
@@ -49,7 +53,6 @@ function SingUp() {
 
   const changeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
-    console.log(e.email);
   };
 
   const onFinish = async (input) => {
@@ -58,20 +61,10 @@ function SingUp() {
     console.log(result);
   };
 
-  const register = (e) => {};
-
-  //   handleChange = (event) => {
-  //     this.setState({
-  //       editTodo: {
-  //         ...this.state.editTodo,
-  //         title: event.target.value,
-  //       },
-  //     });
-  // }
-
   return (
     <>
       <Card
+        style={{ border: "0px solid #000", borderRadius: "10px" }}
         title="REGISTRATE"
         headStyle={{
           color: "#fff",
@@ -80,20 +73,24 @@ function SingUp() {
         }}
       >
         <Form
+          className="login-form"
           {...layout}
           //name="nest-messages"
           onFinish={onFinish}
           validateMessages={validateMessages}
           className="register-form"
           onChange={changeInput}
+          size={"large"}
           //onSubmit={register}
         >
           <Form.Item
             name="name"
-            label="Name"
+            label="Nombre"
             rules={[
               {
                 required: true,
+                pattern: /^[a-z]+$/,
+                min: 5,
               },
             ]}
           >
@@ -101,31 +98,85 @@ function SingUp() {
           </Form.Item>
           <Form.Item
             name="lastname"
-            label="lastName"
+            label="apellidos"
             rules={[
               {
                 required: true,
+                pattern: /^[a-z]+$/,
+                message: "Los nombres Solo deben tener caracteres",
               },
             ]}
           >
             <Input value={input.lastname} />
           </Form.Item>
-          <Form.Item name="email" label="Email">
-            <Input value={input.email} />
+          <Form.Item
+            name="email"
+            label="Correo"
+            value={input.email}
+            rules={[
+              {
+                required: true,
+                type: "email",
+              },
+            ]}
+          >
+            <Input />
           </Form.Item>
-          <Form.Item name="password" label="password">
+          <Form.Item name="password" label="Contraseña">
             <Input.Password value={input.password} />
           </Form.Item>
-          <Form.Item name="repeatPassword" label="repeatPassword">
-            <Input.Password value={input.repeatPassword} />
+
+          <Form.Item
+            name="repeatPassword"
+            label="Confirm Password"
+            dependencies={["password"]}
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: "Please confirm your password!",
+              },
+              ({ getFieldValue }) => ({
+                validator(rule, value) {
+                  if (!value || getFieldValue("password") === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    "Las conteseñas ingresadas no coinciden!"
+                  );
+                },
+              }),
+            ]}
+          >
+            <Input.Password />
           </Form.Item>
-          <Form.Item name="conditions" label="Introduction">
-            <Input.TextArea />
+          <Form.Item
+            wrapperCol={{ ...layout.wrapperCol, offset: 6 }}
+            name="agreement"
+            valuePropName="checked"
+            rules={[
+              {
+                validator: (_, value) =>
+                  value
+                    ? Promise.resolve()
+                    : Promise.reject("Should accept agreement"),
+              },
+            ]}
+          >
+            <Checkbox>
+              I have read the <a href="">agreement</a>
+            </Checkbox>
           </Form.Item>
-          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 14 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
+          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 6 }}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+              block
+            >
+              Log in
             </Button>
+            o <a href="">ingresa!</a>
           </Form.Item>
         </Form>
       </Card>
