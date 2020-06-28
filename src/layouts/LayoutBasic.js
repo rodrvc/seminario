@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Layout } from "antd";
 import { Login } from "../pages/landing/Login";
-import { Header } from "./Header";
+import { HeaderComponent } from "./HeaderComponent";
 
 export default function LayoutBasic(props) {
   const { routes } = props;
@@ -17,7 +17,7 @@ export default function LayoutBasic(props) {
   if (!user) {
     return (
       <>
-        <Header />
+        <HeaderComponent />
         <div className="landing-page-bg">
           <Route path="/principal/login" component={Login} />
           <Redirect to="/principal/login" />

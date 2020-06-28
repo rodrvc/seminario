@@ -4,7 +4,7 @@ import SingUp from "../../components/SingUp";
 export default function Principal() {
   return (
     <div>
-      <h1>This is PRincipal</h1>
+      <h1>Hola como Estas</h1>
       <SingUp />
     </div>
   );
