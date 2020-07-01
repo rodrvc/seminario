@@ -12,7 +12,7 @@ export function signUpApi(data) {
 
   return fetch(url, params)
     .then((response) => {
-      return response.json();
+      return response; // not convert to json!
     })
     .then((result) => {
       if (result) {

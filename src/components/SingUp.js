@@ -58,7 +58,6 @@ function SingUp() {
     email: "",
     password: "",
     repeatPassword: "",
-    agreement: false,
   });
 
   const changeInputVal = (e) => {
@@ -66,6 +65,9 @@ function SingUp() {
   };
 
   const onFinish = async (input) => {
+    if (!input.ok) {
+      console.log("esto esta mal");
+    }
     const result = await signUpApi(input);
     console.log(result);
   };
