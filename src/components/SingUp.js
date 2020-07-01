@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+
 import "antd/dist/antd.css";
 import "../../src/index.css";
 import { signUpApi } from "../api/user";
+import { validityState } from "../utils/validations";
 
 import { Form, Input, Button, Layout, Tabs, Card, Checkbox } from "antd";
 
 const { Header, Content, Sider } = Layout;
-const { TabPane } = Tabs;
 
 const layout = {
   labelCol: { span: 6 },
@@ -15,7 +15,7 @@ const layout = {
 };
 
 const validateMessages = {
-  required: "${label} is required!",
+  required: "Debes ingresar el Campo ${label}",
 
   types: {
     name: "${label} is not validate nombre",
@@ -27,6 +27,14 @@ const validateMessages = {
     range: "${label} must be between ${min} and ${max}",
   },
   text: "${label}no es texto",
+  pattern: {
+    mismatch:
+      "'${name}' se requiere Mayusculas, minusculas, numeros! min 8 caracteres!",
+  },
+};
+
+const pat = {
+  pattern: /^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$/,
 };
 
 const tailFormItemLayout = {
@@ -46,19 +54,24 @@ function SingUp() {
   const [input, setInput] = useState({
     name: "",
     lastname: "",
+    secondLastName: "",
     email: "",
     password: "",
     repeatPassword: "",
+    agreement: false,
   });
 
-  const changeInput = (e) => {
+  const changeInputVal = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const onFinish = async (input) => {
-    console.log(input);
     const result = await signUpApi(input);
     console.log(result);
+  };
+
+  const onValuesChange = (e) => {
+    console.log("change input");
   };
 
   return (
@@ -66,6 +79,7 @@ function SingUp() {
       <Card
         style={{ border: "0px solid #000", borderRadius: "10px" }}
         title="REGISTRATE"
+        hasFeedback
         headStyle={{
           color: "#fff",
           textAlign: "center",
@@ -79,36 +93,53 @@ function SingUp() {
           onFinish={onFinish}
           validateMessages={validateMessages}
           className="register-form"
-          onChange={changeInput}
+          onChange={changeInputVal}
           size={"large"}
-          //onSubmit={register}
         >
           <Form.Item
             name="name"
-            label="Nombre"
+            label="Nombres"
             rules={[
               {
-                required: true,
-                pattern: /^[a-z]+$/,
-                min: 5,
+                pattern: /^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$/,
+                message: "Debes ingresar solo letras!",
               },
+              { required: true },
             ]}
           >
             <Input value={input.name} />
           </Form.Item>
           <Form.Item
             name="lastname"
-            label="apellidos"
+            label="Apellido Paterno"
             rules={[
               {
+                pattern: /^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$/,
+                message: "Debes ingresar solo letras!",
+              },
+              {
                 required: true,
-                pattern: /^[a-z]+$/,
-                message: "Los nombres Solo deben tener caracteres",
               },
             ]}
           >
             <Input value={input.lastname} />
           </Form.Item>
+          <Form.Item
+            name="secondLastName"
+            label="Apellido Materno"
+            rules={[
+              {
+                pattern: /^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$/,
+                message: "Debes ingresar solo letras!",
+              },
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input value={input.secondLastname} />
+          </Form.Item>
+
           <Form.Item
             name="email"
             label="Correo"
@@ -122,12 +153,25 @@ function SingUp() {
           >
             <Input />
           </Form.Item>
-          <Form.Item name="password" label="Contraseña">
+          <Form.Item
+            name="password"
+            label="Contraseña"
+            hasFeedback
+            rules={[
+              {
+                pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                message: "minimo 8 caracteres entre mayusculas y minusculas",
+              },
+              {
+                required: true,
+              },
+            ]}
+          >
             <Input.Password value={input.password} />
           </Form.Item>
           <Form.Item
             name="repeatPassword"
-            label="Confirm Password"
+            label="repite tu Password"
             dependencies={["password"]}
             hasFeedback
             rules={[
@@ -135,6 +179,7 @@ function SingUp() {
                 required: true,
                 message: "Please confirm your password!",
               },
+
               ({ getFieldValue }) => ({
                 validator(rule, value) {
                   if (!value || getFieldValue("password") === value) {
@@ -158,8 +203,11 @@ function SingUp() {
                 validator: (_, value) =>
                   value
                     ? Promise.resolve()
-                    : Promise.reject("Should accept agreement"),
+                    : Promise.reject(
+                        "Debes aceptar las politicas de la comunidad"
+                      ),
               },
+              { required: true },
             ]}
           >
             <Checkbox>

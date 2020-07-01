@@ -21,6 +21,6 @@ export function signUpApi(data) {
       return { ok: false, message: result.message + "erro 1 " };
     })
     .catch((err) => {
-      return { ok: false, message: err.messag + "erro 2 " };
+      return { ok: false, err };
     });
 }
