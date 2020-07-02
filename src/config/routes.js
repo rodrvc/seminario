@@ -1,8 +1,7 @@
 import { Component } from "react";
 import { Layout } from "antd";
 import LayoutBasic from "../layouts/LayoutBasic"; // base
-import Principal from "../pages/landing";
-import { Login } from "../pages/landing/Login";
+import Login from "../pages/landing";
 
 const routes = [
   {
@@ -11,14 +10,14 @@ const routes = [
     routes: [
       {
         path: "/principal/index",
-        component: Principal,
-        exact: true,
-      },
-      {
-        path: "/principal/login",
         component: Login,
         exact: true,
       },
+      // {
+      //   path: "/principal/login",
+      //   component: Login,
+      //   exact: true,
+      // },
     ],
   },
 ];
