@@ -9,7 +9,12 @@ import routes from "./config/routes";
 import Principal from "./pages/landing";
 
 function App() {
-  // prueba de states
+  /**
+   * Esto es una prueba
+   * @method {integer}
+   * {aasdasda}
+   * @type {String}
+   */
 
   return (
     <Router>

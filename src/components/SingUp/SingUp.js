@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import "antd/dist/antd.css";
-import "../../src/index.css";
-import { signUpApi } from "../api/user";
-import { validityState } from "../utils/validations";
+import "../../index.css";
+import { signUpApi } from "../../api/user";
+import { validityState } from "../../utils/validations";
 
 import { Form, Input, Button, Layout, Tabs, Card, Checkbox } from "antd";
 
@@ -54,7 +54,7 @@ function SingUp() {
   const [input, setInput] = useState({
     name: "",
     lastname: "",
-    secondLastName: "",
+    secondLastname: "",
     email: "",
     password: "",
     repeatPassword: "",
@@ -66,7 +66,7 @@ function SingUp() {
 
   const onFinish = async (input) => {
     if (!input.ok) {
-      console.log("esto esta mal");
+      console.log(input);
     }
     const result = await signUpApi(input);
     console.log(result);
@@ -127,7 +127,7 @@ function SingUp() {
             <Input value={input.lastname} />
           </Form.Item>
           <Form.Item
-            name="secondLastName"
+            name="secondLastname"
             label="Apellido Materno"
             rules={[
               {
