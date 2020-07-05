@@ -1,0 +1,24 @@
+.landing-btn {
+	width: 300px;
+}
+
+#root > div > div > div.front > button {
+	width: 200px;
+	height: 100px;
+	border-radius: 10px;
+}
+
+#root > div > div > div.front > button {
+}
+
+button.ant-btn.landing-btn.ant-btn-primary.ant-btn-lg {
+	height: 100px;
+}
+
+span {
+	font-size: large;
+}
+
+#root > div > div > div.front > button > span:nth-child(2) {
+	font-size: x-large;
+}

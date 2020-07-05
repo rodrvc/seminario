@@ -1,0 +1,39 @@
+@media (min-width: 300px) {
+	#root > div > div > div.landing-form > div > div.ant-card-body {
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+
+	.login-form {
+		max-width: 100%;
+	}
+	.login-form-forgot {
+		float: right;
+	}
+	.ant-col-rtl .login-form-forgot {
+		float: left;
+	}
+	.login-form-button {
+		width: 100%;
+	}
+}
+
+@media (min-width: 700px) {
+	#root > div > div > div.landing-form > div > div.ant-card-body {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+
+	.login-form {
+		max-width: 800px;
+	}
+	.login-form-forgot {
+		float: right;
+	}
+	.ant-col-rtl .login-form-forgot {
+		float: left;
+	}
+	.login-form-button {
+		width: 100%;
+	}
+}
