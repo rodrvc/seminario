@@ -1,4 +1,5 @@
 import { BASE_PATH } from "./config";
+import { message } from "antd";
 
 export function signUpApi(data) {
 	const url = `${BASE_PATH}/users`;
@@ -27,4 +28,26 @@ export function signUpApi(data) {
 
 export function signin(data) {
 	console.log(data);
+	const url = `${BASE_PATH}/signin`;
+	//console.log(url);
+	const params = {
+		method: "POST",
+		body: JSON.stringify(data),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	};
+	return fetch(url, params)
+		.then((response) => {
+			return response.json();
+		})
+		.then((result) => {
+			if (result) {
+				return result;
+			}
+			return result;
+		})
+		.catch((err) => {
+			return err.message;
+		});
 }

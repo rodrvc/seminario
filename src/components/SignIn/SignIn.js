@@ -1,10 +1,12 @@
-import { Form, Input, Button, Checkbox, Card } from "antd";
+import { Form, Input, Button, Checkbox, Card, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import React, { useState, isValidElement } from "react";
 import { signin } from "../../api/user";
 import "./SignIn.css";
 import { getFieldId } from "antd/lib/form/util";
 import SingUp from "../SingUp";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constans";
+import { getAccess } from "../../api/auth";
 
 const SignIn = () => {
 	const [form] = Form.useForm();
@@ -12,6 +14,31 @@ const SignIn = () => {
 	const onFinish = async (values) => {
 		//console.log("Received values of form: ", values);
 		const result = await signin(values);
+
+		if (result.error) {
+			console.log("HUBO UN ERROR");
+			notification.error({
+				message: "Ingreso invalido",
+				description: "Usuario o contraseña invalidos!",
+				placement: "bottomRight",
+			});
+			reset();
+		} else {
+			const { accessToken, refreshToken } = result;
+			console.log(result);
+
+			localStorage.setItem(ACCESS_TOKEN, accessToken);
+			localStorage.setItem(REFRESH_TOKEN, refreshToken);
+
+			notification.success({
+				message: " Bienvenido !!",
+			});
+			window.location.href = "/principal";
+		}
+	};
+
+	const reset = () => {
+		form.resetFields();
 	};
 
 	const [inputs, setInput] = useState({
