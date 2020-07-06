@@ -1,6 +1,7 @@
 import { Form, Input, Button, Checkbox, Card, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import React, { useState, isValidElement } from "react";
+import { Redirect } from "react-router-dom";
 import { signin } from "../../api/user";
 import "./SignIn.css";
 import { getFieldId } from "antd/lib/form/util";
@@ -33,7 +34,7 @@ const SignIn = () => {
 			notification.success({
 				message: " Bienvenido !!",
 			});
-			window.location.href = "/principal";
+			window.location.href = "/admin";
 		}
 	};
 

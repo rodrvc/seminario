@@ -44,7 +44,7 @@ export function setRefreshAccessToken(refreshToken) {
 			if (!result) {
 				logOut();
 			} else {
-				const { accessToken, refresh } = result;
+				const { accessToken, refreshToken } = result;
 				localStorage.setItem(ACCESS_TOKEN, accessToken);
 				localStorage.setItem(REFRESH_TOKEN, refreshToken);
 			}

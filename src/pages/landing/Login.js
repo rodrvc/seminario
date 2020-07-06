@@ -1,11 +1,17 @@
 import React from "react";
 import SignIn from "../../components/SignIn";
+import { Redirect } from "react-router-dom";
 import { Button, Radio } from "antd";
 import { DownloadOutlined, SearchOutlined } from "@ant-design/icons";
 import "./landing.css";
 import logo from "../../assets/cooking.svg";
+import { getAccess } from "../../api/auth";
 
 export function Login() {
+	if (getAccess()) {
+		return <Redirect to="/admin" />;
+	}
+
 	return (
 		<div className="mainfront">
 			<div className="front">

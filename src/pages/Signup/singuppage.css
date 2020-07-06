@@ -1,0 +1,90 @@
+@import "../../index.css";
+
+.landing-btn {
+	width: 300px;
+	text-align: center;
+	margin: auto;
+	position: relative;
+	border-radius: 30px;
+}
+.btn-explore {
+	margin: auto;
+	margin-bottom: -120px;
+	text-align: center;
+	padding-top: 5%;
+}
+
+.icon {
+	display: flex;
+	justify-content: space-around;
+}
+
+.icon-item {
+	transform: rotate(10deg);
+}
+
+.doggi {
+	margin: -10px;
+	width: 20em;
+	transform: rotate(-10deg);
+}
+
+button.ant-btn.landing-btn.ant-btn-primary.ant-btn-lg {
+	height: 100px;
+}
+
+span {
+	font-size: large;
+}
+
+.register {
+	background: #48a1af;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.front {
+	align-self: center;
+	justify-content: center;
+	justify-self: center;
+	text-align: center;
+	margin-top: 150px;
+	margin-bottom: 20px;
+}
+
+.landing-page-bg {
+	background: #48a1af;
+	padding-top: 200px;
+	padding-bottom: 300px;
+}
+
+.langing-title {
+	font-size: 60px;
+	color: #fff;
+}
+.landing-msj-container {
+	display: block;
+}
+
+.langing-msj {
+	color: #fff;
+	font-size: 50px;
+}
+.landing-btn {
+	align-self: center;
+	margin: 10px;
+	margin-bottom: 70px;
+	align-content: center;
+	text-align: center;
+}
+
+.landing-form {
+	width: 700px;
+}
+
+.ant-card-head-title {
+	margin-top: 30px;
+}
+.ant-card.ant-card-bordered {
+	text-align: center;
+}

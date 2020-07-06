@@ -7,18 +7,19 @@ import { getAccess, getRefresh } from "../api/auth";
 import useAuth from "../hooks/useAuth";
 import { SELECTION_ALL } from "antd/lib/table/hooks/useSelection";
 
-export default function LayoutBasic(props) {
+export default function LayoutInternal(props) {
 	const { routes } = props;
 
 	const { user, isLoading } = useAuth();
+	//user = null;
 
 	if (!user) {
 		return (
 			<>
 				<HeaderComponent />
 				<div className="landing-page-bg">
-					<Route path="/principal/index" component={Login} />
-					<Redirect to="/principal/index" />
+					<Route path="/principal/" component={Login} />
+					<Redirect to="/principal" />
 				</div>
 			</>
 		);
@@ -26,7 +27,6 @@ export default function LayoutBasic(props) {
 		return (
 			<>
 				<Layout>
-					<HeaderComponent />
 					<RoutesWithComponents routes={routes} />
 				</Layout>
 			</>
