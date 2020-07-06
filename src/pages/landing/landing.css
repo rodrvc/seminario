@@ -1,4 +1,4 @@
-.landing-btn {
+/* .landing-btn {
 	width: 300px;
 }
 
@@ -15,10 +15,56 @@ button.ant-btn.landing-btn.ant-btn-primary.ant-btn-lg {
 	height: 100px;
 }
 
+
+
+
+
+.mainfront {
+	margin-right: 100px;
+}
+@media (min-width: 700px) {
+	#root > div > div > div.landing-form > div > div.ant-card-body {
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+
+	.login-form-forgot {
+		float: right;
+	}
+	.ant-col-rtl .login-form-forgot {
+		float: left;
+	}
+	.login-form-button {
+		width: 100%;
+	}
+	.mainfront {
+		margin-right: 0;
+	}
+} */
+
+.icon {
+	margin-top: -161px;
+}
+
 span {
 	font-size: large;
 }
 
 #root > div > div > div.front > button > span:nth-child(2) {
 	font-size: x-large;
+}
+
+.landing-page-bg {
+	background: #48a1af;
+}
+
+@media (min-width: 700px) {
+	.icon {
+		margin-top: -10;
+	}
+
+	.landing-page-bg {
+		padding-top: 200px;
+		padding-bottom: 300px;
+	}
 }

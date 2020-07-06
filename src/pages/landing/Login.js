@@ -13,28 +13,37 @@ export function Login() {
 	}
 
 	return (
-		<div className="mainfront">
-			<div className="front">
-				<div>
-					<h1 className="langing-title">¿Buscando un Servicio?</h1>
+		<>
+			<div className="mainfront">
+				<div className="front">
+					<div>
+						<h1 className="langing-title">¿Buscando un Servicio?</h1>
+					</div>
+					<div className="landing-msj-container">
+						<p className="langing-msj">Todos tenemos algo que ofrecer...</p>
+					</div>
+					<Button
+						className="landing-btn"
+						type="primary"
+						icon={
+							<SearchOutlined
+								spin={false}
+								style={{ fontSize: "24px" }}
+							/>
+						}
+						size={"large"}
+					>
+						EXPLORAR
+					</Button>
 				</div>
-				<div className="landing-msj-container">
-					<p className="langing-msj">Todos tenemos algo que ofrecer...</p>
+				<div className="landing-form">
+					<SignIn />
 				</div>
-				<Button
-					className="landing-btn"
-					type="primary"
-					icon={<SearchOutlined spin={false} style={{ fontSize: "24px" }} />}
-					size={"large"}
-				>
-					EXPLORAR
-				</Button>
 			</div>
-			<div className="landing-form">
-				<SignIn />
+			<div className="icon">
+				<img src={logo} alt="logo" />
 			</div>
-			<img src={logo} alt="logo" />
-		</div>
+		</>
 	);
 }
 export default Login;

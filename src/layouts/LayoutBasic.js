@@ -17,8 +17,11 @@ export default function LayoutBasic(props) {
 			<>
 				<HeaderComponent />
 				<div className="landing-page-bg">
-					<Route path="/principal/index" component={Login} />
-					<Redirect to="/principal/index" />
+					{
+						/* <Route path="/principal/" component={Login} />
+					<Redirect to="/principal/" /> */
+						<RoutesWithComponents routes={routes} />
+					}
 				</div>
 			</>
 		);

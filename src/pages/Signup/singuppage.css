@@ -48,14 +48,12 @@ span {
 	justify-content: center;
 	justify-self: center;
 	text-align: center;
-	margin-top: 150px;
+
 	margin-bottom: 20px;
 }
 
 .landing-page-bg {
 	background: #48a1af;
-	padding-top: 200px;
-	padding-bottom: 300px;
 }
 
 .langing-title {
@@ -87,4 +85,19 @@ span {
 }
 .ant-card.ant-card-bordered {
 	text-align: center;
+}
+
+.ant-card.ant-card-bordered {
+	max-width: 800px;
+}
+
+@media (min-width: 700px) {
+	.icon {
+		margin-top: -10;
+	}
+
+	.landing-page-bg {
+		padding-top: 200px;
+		padding-bottom: 300px;
+	}
 }

@@ -3,11 +3,12 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import React, { useState, isValidElement } from "react";
 import { Redirect } from "react-router-dom";
 import { signin } from "../../api/user";
-import "./SignIn.css";
+
 import { getFieldId } from "antd/lib/form/util";
 import SingUp from "../SingUp";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constans";
 import { getAccess } from "../../api/auth";
+import "./SignIn.css";
 
 const SignIn = () => {
 	const [form] = Form.useForm();
@@ -126,7 +127,8 @@ const SignIn = () => {
 					>
 						Ingresar!
 					</Button>
-					O <a href="">Registrate Ahora!</a>
+					O{" "}
+					<a href="http://localhost:3000/principal/signup">Registrate Ahora!</a>
 				</Form.Item>
 			</Form>
 		</Card>

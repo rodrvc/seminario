@@ -14,12 +14,12 @@ const routes = [
 
 		routes: [
 			{
-				path: "/principal/index",
+				path: "/principal/signin",
 				component: Login,
 				exact: true,
 			},
 			{
-				path: "/admin",
+				path: "/principal/signup",
 				component: SignupPage,
 				exact: true,
 			},

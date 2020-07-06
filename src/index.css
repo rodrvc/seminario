@@ -17,12 +17,6 @@
 	text-align: center;
 }
 
-.landing-page-bg {
-	background: #48a1af;
-	padding-top: 200px;
-	padding-bottom: 300px;
-}
-
 .langing-title {
 	font-size: 60px;
 	color: #fff;
@@ -41,10 +35,6 @@
 	margin-bottom: 70px;
 	align-content: center;
 	text-align: center;
-}
-
-.landing-form {
-	width: 700px;
 }
 
 body {
