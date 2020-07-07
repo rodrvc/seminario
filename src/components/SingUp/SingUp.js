@@ -229,7 +229,7 @@ function SingUp() {
 						>
 							Log in
 						</Button>
-						o <a href="">ingresa!</a>
+						o <a href="http://localhost:3000/principal/signin">ingresa!</a>
 					</Form.Item>
 				</Form>
 			</Card>

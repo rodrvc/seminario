@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { getAccess, getRefresh, setRefreshAccessToken, logOut } from "../api/auth";
-import Item from "antd/lib/list/Item";
+import jwtDecode from "jwt-decode";
 
 export const AuthContext = createContext();
 
@@ -31,12 +31,12 @@ function verifyLogin(setUser) {
 				isLoading: false,
 			});
 		} else {
-			refreshToken(refreshToken);
+			setRefreshAccessToken(refreshToken);
 		}
 	} else {
 		setUser({
+			user: jwtDecode(accessToken),
 			isLoading: true,
-			user: accessToken,
 		});
 	}
 }

@@ -3,6 +3,7 @@ import { Layout } from "antd";
 import LayoutBasic from "../layouts/LayoutBasic"; // base
 import Login from "../pages/landing";
 import SignupPage from "../pages/Signup/SignupPage";
+import Home from "../pages/Home";
 import LayoutInternal from "../layouts/LayoutInternal";
 import SingUp from "../components/SingUp";
 
@@ -31,13 +32,13 @@ const routes = [
 		],
 	},
 	{
-		path: "/admin",
+		path: "/home",
 		component: LayoutBasic,
 		exact: false,
 		routes: [
 			{
-				path: "/admin",
-				component: SignupPage,
+				path: "/home",
+				component: Home,
 				exact: true,
 			},
 			// {

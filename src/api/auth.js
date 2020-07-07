@@ -2,6 +2,8 @@ import { BASE_PATH } from "./config";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../utils/constans";
 import jwtDecode from "jwt-decode";
 
+//Solo se comprueban los tokes auth
+
 export function getAccess() {
 	const accessToken = localStorage.getItem(ACCESS_TOKEN);
 	if (!accessToken || accessToken === "null") {
@@ -48,6 +50,9 @@ export function setRefreshAccessToken(refreshToken) {
 				localStorage.setItem(ACCESS_TOKEN, accessToken);
 				localStorage.setItem(REFRESH_TOKEN, refreshToken);
 			}
+		})
+		.catch((err) => {
+			console.log(err + "Erro al obtener tokens!");
 		});
 }
 
@@ -58,7 +63,7 @@ export function logOut() {
 
 function isExpired(token) {
 	const seconds = 60;
-	const metaToken = jwtDecode(token);
+	const metaToken = jwtDecode(token); // se decodifica para poder obtener exp
 	const { exp } = metaToken;
 	const now = (Date.now() + seconds) / 1000;
 	return now > exp; // devoluelve boolean

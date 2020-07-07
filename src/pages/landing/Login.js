@@ -9,7 +9,7 @@ import { getAccess } from "../../api/auth";
 
 export function Login() {
 	if (getAccess()) {
-		return <Redirect to="/admin" />;
+		return <Redirect to="/home" />;
 	}
 
 	return (

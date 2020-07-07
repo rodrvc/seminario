@@ -35,7 +35,7 @@ const SignIn = () => {
 			notification.success({
 				message: " Bienvenido !!",
 			});
-			window.location.href = "/admin";
+			window.location.href = "/home";
 		}
 	};
 
