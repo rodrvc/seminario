@@ -1,0 +1,17 @@
+header.ant-layout-header.header {
+	background-color: teal;
+	display: flex;
+	justify-content: space-between;
+}
+
+li.ant-menu-item.ant-menu-item-only-child {
+	background-color: teal;
+}
+
+ul.ant-menu.ant-menu-dark.ant-menu-root.ant-menu-horizontal {
+	background: " #FFAA00";
+}
+
+.logo {
+	width: 100px;
+}

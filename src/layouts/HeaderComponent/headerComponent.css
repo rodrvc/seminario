@@ -1,0 +1,27 @@
+header.ant-layout-header.header-light {
+	background-color: whitesmoke;
+	display: flex;
+	justify-content: space-between;
+}
+
+li.ant-menu-item.ant-menu-item-only-child {
+	background-color: whitesmoke;
+}
+
+li.ant-menu-item.ant-menu-item-only-child {
+	background: transparent;
+}
+
+.logo {
+	width: 100px;
+}
+
+header.ant-layout-header.header-light {
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+}
+
+.li.ant-menu-item.ant-menu-item-only-child {
+	background-color: white;
+}

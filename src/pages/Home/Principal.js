@@ -5,18 +5,23 @@ import { SearchOutlined } from "@ant-design/icons";
 import logo from "../../assets/cooking.svg";
 import iconDoggi from "../../assets/aseo-de-mascotas.svg";
 import useAuth from "../../hooks/useAuth";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import "./home.css";
 
 function Home() {
 	const { user, isLoading } = useAuth();
 	const u = user;
-	console.log(u);
+
+	if (!user) {
+		return <Redirect to="/principal/signin" />;
+	}
 
 	return (
 		<>
 			<div className="register">
 				<div className="front">
 					<div>
-						<h1 className="langing-title">Bienvenido {}</h1>
+						<h1 className="title">Bienvenido {}</h1>
 					</div>
 				</div>
 				<div className="register-form"></div>
