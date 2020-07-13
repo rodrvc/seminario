@@ -94,6 +94,9 @@ export function getTaskersRequired(token, skill) {
 		.then((response) => {
 			return response.json();
 		})
+		.then((result) => {
+			return result;
+		})
 
 		.catch((err) => {
 			return err.message;

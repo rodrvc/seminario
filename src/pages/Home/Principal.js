@@ -14,22 +14,29 @@ import { getTaskersRequired } from "../../api/user";
 import Search from "antd/lib/transfer/search";
 
 function Home() {
-	const { user, isLoading } = useAuth(); // verifica auten
+	const { user } = useAuth(); // verifica auten
 	const u = user;
 	const token = getAccess();
 	const [skill, setSkill] = useState("");
 	const [Loading, setLoading] = useState(false);
 	const [search, setSearch] = useState("");
-	const [arrayTaskers, setArrayTaskers] = useState({});
+	const [arrayTaskers, setArrayTaskers] = useState([null]);
+	const [data, setData] = useState({ hits: [] });
+	//const [url, setUrl] = useState("http://hn.algolia.com/api/v1/search?query=redux");
+	//const [isLoading, setIsLoading] = useState(false);
+	//const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
-		const ac = new AbortController();
-		getTaskersRequired(token, skill).then((response) => {
-			console.log(response);
-			setArrayTaskers(response);
-		});
-		return () => ac.abort();
-	}, [skill]);
+		if (Loading) {
+			getTaskersRequired(token, skill)
+				.then((response) => {
+					console.log(response);
+					setArrayTaskers(response);
+				})
+				.catch((err) => console.log(err));
+		}
+		setLoading(!Loading);
+	}, [token, skill]);
 
 	const onSearchSeleted = (e) => {
 		const value = e;
@@ -44,7 +51,12 @@ function Home() {
 		console.log();
 	}
 
-	const options = [{ value: "barrer" }, { value: "cocinar" }, { value: "lavar" }];
+	const options = [
+		{ value: "barrer" },
+		{ value: "cocinar" },
+		{ value: "lavar" },
+		{ value: "" },
+	];
 
 	if (!user) {
 		return <Redirect to="/principal/signin" />;
@@ -96,10 +108,22 @@ function Home() {
 				</div>
 			</div>
 			<div className="list-container">
-				<TaskerList skill={search} />
+				<TaskerList skill={arrayTaskers} />
 			</div>
 		</>
 	);
 }
 
 export default Home;
+
+// {artistData ? artistData.artistAlbums.items.map(album => {
+//       return (
+//         <AlbumTag
+//           image={album.images[0].url}
+//           name={album.name}
+//           artists={album.artists}
+//           key={album.id}
+//         />
+//       )
+//     })
+//     : null}

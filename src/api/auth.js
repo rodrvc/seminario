@@ -15,7 +15,8 @@ export function getAccess() {
 
 export function getRefresh() {
 	const refreshToken = localStorage.getItem(REFRESH_TOKEN);
-	if (!refreshToken || refreshToken == "null") {
+	if (!refreshToken || refreshToken === "null") {
+		// cambiar a ==
 		return null;
 	}
 

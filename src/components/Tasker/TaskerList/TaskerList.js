@@ -3,12 +3,12 @@ import { List, Avatar, Space } from "antd";
 import "./TaskerList.css";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
 
-function TaskerList(props) {
+export default function TaskerList(props) {
 	const { skill } = props;
 	console.log(skill);
 
 	const listData = [];
-	for (let i = 0; i < 23; i++) {
+	for (let i = 0; i < 2; i++) {
 		listData.push({
 			href: "https://ant.design",
 			title: `ant design part ${i}`,
@@ -84,5 +84,3 @@ function TaskerList(props) {
 		</div>
 	);
 }
-
-export default TaskerList;
