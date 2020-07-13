@@ -28,6 +28,10 @@
 	width: 900px;
 }
 
+h1.title {
+	color: whitesmoke;
+}
+
 /* .ant-card.ant-card-bordered {
 	border-radius: 10px;
 	width: 800px;

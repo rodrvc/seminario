@@ -11,7 +11,7 @@ function HeaderNotLogged(props) {
 		<Header className="header">
 			<img className="logo" src={Tasklogo} alt="logo" />
 
-			<Menu theme="dark" mode="horizontal">
+			<Menu theme="light" mode="horizontal">
 				<Menu.Item key="1">
 					<a href="/principal/signin">Inicio</a>
 				</Menu.Item>

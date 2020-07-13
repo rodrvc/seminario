@@ -5,7 +5,7 @@ header.ant-layout-header.header-light {
 }
 
 li.ant-menu-item.ant-menu-item-only-child {
-	background-color: whitesmoke;
+	background-color: teal;
 }
 
 li.ant-menu-item.ant-menu-item-only-child {
@@ -17,11 +17,11 @@ li.ant-menu-item.ant-menu-item-only-child {
 }
 
 header.ant-layout-header.header-light {
-	background-color: white;
+	background-color: teal;
 	display: flex;
 	justify-content: space-between;
 }
 
 .li.ant-menu-item.ant-menu-item-only-child {
-	background-color: white;
+	background-color: teal;
 }
