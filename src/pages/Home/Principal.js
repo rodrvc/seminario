@@ -30,8 +30,8 @@ function Home() {
 		if (Loading) {
 			getTaskersRequired(token, skill)
 				.then((response) => {
-					console.log(response);
-					setArrayTaskers(response);
+					console.log(response.users);
+					setArrayTaskers(response.users);
 				})
 				.catch((err) => console.log(err));
 		}
@@ -108,7 +108,11 @@ function Home() {
 				</div>
 			</div>
 			<div className="list-container">
-				<TaskerList skill={arrayTaskers} />
+				{arrayTaskers ? (
+					<TaskerList skill={arrayTaskers} />
+				) : (
+					<TaskerList skill={arrayTaskers} />
+				)}
 			</div>
 		</>
 	);
