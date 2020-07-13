@@ -13,6 +13,7 @@ import { getAccess } from "../../api/auth";
 import { getTaskersRequired } from "../../api/user";
 import Search from "antd/lib/transfer/search";
 
+//Componente pagina principal, donde se buscaran los taskers
 function Home() {
 	const { user } = useAuth(); // verifica auten
 	const u = user;
@@ -26,6 +27,7 @@ function Home() {
 	//const [isLoading, setIsLoading] = useState(false);
 	//const [isError, setIsError] = useState(false);
 
+	//UseEfect sera ejecutado cuando la app sea cargada,
 	useEffect(() => {
 		if (Loading) {
 			getTaskersRequired(token, skill)
@@ -38,30 +40,34 @@ function Home() {
 		setLoading(!Loading);
 	}, [token, skill]);
 
+	//cuando se seleccione un elemento de la lista pasara a tomar el valor en setSearch
 	const onSearchSeleted = (e) => {
 		const value = e;
 		setSearch(e);
 		console.log(search);
 		//setLoading(!Loading);
 	};
-
+	//setSearch sera pasada al metodo presionar  buscar
 	function onGetTaskerRequired(value) {
 		const selected = search;
 		setSkill(selected);
 		console.log();
 	}
 
+	//las opciones de prueba para probar la aplicacion
 	const options = [
 		{ value: "barrer" },
 		{ value: "cocinar" },
 		{ value: "lavar" },
 		{ value: "" },
 	];
-
+	//si usuario no esta registrado se redirigira a login
 	if (!user) {
 		return <Redirect to="/principal/signin" />;
 	}
 
+	//
+	// se renderiza pagina principal
 	return (
 		<>
 			<div className="register">
@@ -70,7 +76,7 @@ function Home() {
 						<h1 className="title">Bienvenido {}</h1>
 					</div>
 				</div>
-
+				{/* Se monga contenedor con la barra autocompletada */}
 				<div className="container-autocomplete">
 					<div className="register-form">
 						<AutoComplete
@@ -85,7 +91,7 @@ function Home() {
 									.indexOf(inputValue.toUpperCase()) !== -1
 							}
 							//value={this.target.value}
-							onChange={onSearchSeleted}
+							onChange={onSearchSeleted} // se seleccina el ultimo valor en searchbar
 						/>
 					</div>
 				</div>
@@ -100,7 +106,7 @@ function Home() {
 							/>
 						}
 						size={"large"}
-						onClick={onGetTaskerRequired}
+						onClick={onGetTaskerRequired} // dispara la funcion para obtener taskers!
 					>
 						EXPLORAR
 					</Button>
@@ -111,7 +117,7 @@ function Home() {
 				</div>
 			</div>
 			<div className="list-container">
-				{arrayTaskers ? (
+				{arrayTaskers ? ( // se encarga de renderizar listas (condisional)
 					<TaskerList skill={arrayTaskers} />
 				) : (
 					<TaskerList skill={arrayTaskers} />

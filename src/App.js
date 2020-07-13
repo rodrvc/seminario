@@ -12,10 +12,10 @@ import AuthProdiver from "./provider/AuthProviders";
 
 function App() {
 	/**
-	 * Esto es una prueba
-	 * @method {integer}
-	 * {aasdasda}
-	 * @type {String}
+	 * Componente padre
+	 * @module  App
+	 * conrresponde al componente padre en cual se renderizaran los distintos elementos hijos de la aplicacion
+	 *
 	 */
 
 	return (
