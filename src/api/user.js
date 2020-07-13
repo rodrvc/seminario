@@ -52,3 +52,50 @@ export function signin(data) {
 			return err.message;
 		});
 }
+
+export function getTaskers(token) {
+	const url = `${BASE_PATH}/get-taskers`;
+
+	const params = {
+		method: "Get",
+
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: token,
+		},
+	};
+	return fetch(url, params)
+		.then((response) => {
+			return response.json();
+		})
+		.then((result) => {
+			if (result) {
+				return result;
+			}
+			return result;
+		})
+		.catch((err) => {
+			return err.message;
+		});
+}
+
+export function getTaskersRequired(token, skill) {
+	const url = `${BASE_PATH}/get-taskers?skill=${skill}`;
+
+	const params = {
+		method: "Get",
+
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: token,
+		},
+	};
+	return fetch(url, params)
+		.then((response) => {
+			return response.json();
+		})
+
+		.catch((err) => {
+			return err.message;
+		});
+}
