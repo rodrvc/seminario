@@ -11,6 +11,23 @@
 	margin: auto;
 }
 
+.container-autocomplete {
+	display: flex;
+	margin: auto;
+	justify-content: center;
+}
+
+.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector {
+	height: 60px;
+	border-radius: 10px;
+	width: 100%;
+	justify-self: center;
+}
+
+.ant-select.ant-select-auto-complete.ant-select-lg.ant-select-single.ant-select-show-search {
+	width: 900px;
+}
+
 /* .ant-card.ant-card-bordered {
 	border-radius: 10px;
 	width: 800px;

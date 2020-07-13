@@ -70,22 +70,25 @@ function Home() {
 						<h1 className="title">Bienvenido {}</h1>
 					</div>
 				</div>
-				<div className="register-form"></div>
 
-				<AutoComplete
-					id="Search"
-					style={{ width: 200 }}
-					options={options}
-					placeholder="Buscas un Servicio...? `b`"
-					size="large"
-					filterOption={(inputValue, option) =>
-						option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
-						-1
-					}
-					//value={this.target.value}
-					onChange={onSearchSeleted}
-				/>
-
+				<div className="container-autocomplete">
+					<div className="register-form">
+						<AutoComplete
+							id="Search"
+							style={{ width: "600px" }}
+							options={options}
+							placeholder="Buscas un Servicio...? `b`"
+							size="large"
+							filterOption={(inputValue, option) =>
+								option.value
+									.toUpperCase()
+									.indexOf(inputValue.toUpperCase()) !== -1
+							}
+							//value={this.target.value}
+							onChange={onSearchSeleted}
+						/>
+					</div>
+				</div>
 				<div className="btn-explore">
 					<Button
 						className="landing-btn"
@@ -93,7 +96,7 @@ function Home() {
 						icon={
 							<SearchOutlined
 								spin={false}
-								style={{ fontSize: "24px" }}
+								style={{ fontSize: "40px" }}
 							/>
 						}
 						size={"large"}
