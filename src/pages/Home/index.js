@@ -1,1 +1,4 @@
-export { default } from "./Principal";
+export {
+    default
+}
+from "./Principal";
