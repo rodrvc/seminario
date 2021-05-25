@@ -13,7 +13,7 @@ export default function AuthProvider(props) {
 	});
 
 	useEffect(() => {
-		verifyLogin(setUser);
+		verifyLogin(setUser)
 	}, []);
 
 	return <AuthContext.Provider value={user}>{children} </AuthContext.Provider>;

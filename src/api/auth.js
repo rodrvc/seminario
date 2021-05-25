@@ -53,7 +53,7 @@ export function setRefreshAccessToken(refreshToken) {
 			}
 		})
 		.catch((err) => {
-			console.log(err + "Erro al obtener tokens!");
+			console.log(err + "Error al obtener tokens!");
 		});
 }
 
