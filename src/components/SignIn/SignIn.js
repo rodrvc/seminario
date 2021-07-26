@@ -17,7 +17,9 @@ const SignIn = () => {
 		//console.log("Received values of form: ", values);
 		const result = await signin(values);
 
-		if (result.error) {
+
+
+		if (result.error || !result) {
 			console.log("HUBO UN ERROR");
 			notification.error({
 				message: "Ingreso invalido",
@@ -29,6 +31,14 @@ const SignIn = () => {
 			const { accessToken, refreshToken } = result;
 			console.log(result);
 
+			if(!accessToken || !refreshToken){
+				notification.error({
+					message: "Ingreso invalido",
+					description: "Al parecer hay problemas en el servidor",
+					placement: "bottomRight",
+				});
+			}else{
+
 			localStorage.setItem(ACCESS_TOKEN, accessToken);
 			localStorage.setItem(REFRESH_TOKEN, refreshToken);
 
@@ -36,6 +46,11 @@ const SignIn = () => {
 				message: " Bienvenido !!",
 			});
 			window.location.href = "/home";
+
+			}
+
+		
+
 		}
 	};
 

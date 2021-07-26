@@ -17,7 +17,9 @@ export function signUpApi(data) {
 		})
 		.then((result) => {
 			if (result) {
+				
 				return { ok: true, message: "Usuario creado correctamente" };
+
 			}
 			return { ok: false, message: result.message + "erro 1 " };
 		})
@@ -40,13 +42,13 @@ export function signin(data) {
 	};
 	return fetch(url, params)
 		.then((response) => {
+
 			return response.json();
 		})
 		.then((result) => {
 			if (result) {
 				return result;
 			}
-			return result;
 		})
 		.catch((err) => {
 			return err.message;
@@ -90,6 +92,8 @@ export function getTaskersRequired(token, skill) {
 			Authorization: token,
 		},
 	};
+
+	
 	return fetch(url, params)
 		.then((response) => {
 			return response.json();

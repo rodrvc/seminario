@@ -15,6 +15,10 @@ export default function TaskerList(props) {
 
 	const listData = [];
 
+	if(!skill)
+	console.log("ha ocurrido un problema aqui")
+
+
 	skill.forEach((element) => {
 		console.log("entra al forEach");
 		if (!element) {

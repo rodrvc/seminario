@@ -115,7 +115,7 @@ function SingUp() {
                     className="register-form"
                     onChange={changeInputVal}
                     size={"large"}>
-                    <Form.Item name="name" label="Nombres" hasFeedback
+                    <Form.Item name="username" label="nombre de usuario" hasFeedback
                         rules={
                             [
                                 {
@@ -130,6 +130,22 @@ function SingUp() {
                             input.name
                         }/>
                     </Form.Item>
+                    <Form.Item name="firstname" label="Nombres" hasFeedback
+                        rules={
+                            [
+                                {
+                                    pattern: /^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$/,
+                                    message: "Debes ingresar solo letras!"
+                                }, {
+                                    required: true
+                                },
+                            ]
+                    }>
+                        <Input value={
+                            input.name
+                        }/>
+                    </Form.Item>
+                 
                     <Form.Item name="lastname" label="Apellido Paterno"
                         rules={
                             [

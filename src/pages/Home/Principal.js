@@ -33,6 +33,7 @@ function Home() {
 		if (Loading) {
 			getTaskersRequired(token, skill)
 				.then((response) => {
+					if(response.users) throw Error
 					console.log(response.users);
 					setArrayTaskers(response.users);
 				})
